@@ -6,10 +6,8 @@ before_script: pip install -r requirements.txt
 
 script:
   - python manage.py test
-
-branches:
-  only:
-    - deploy
+  
+all_branches: true
 
 deploy:
   provider: heroku
