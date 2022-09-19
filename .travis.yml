@@ -9,8 +9,8 @@ script:
 
 branches:
   only:
-    - master
-    - main
+    - deploy
+
 deploy:
   provider: heroku
   api_key: 421f31cc-0c9b-4915-b26b-4d17ae816baf
