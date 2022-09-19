@@ -10,12 +10,10 @@ script:
 branches:
   only:
     - master
-    - main
 deploy:
   provider: heroku
   api_key:
     secure: 421f31cc-0c9b-4915-b26b-4d17ae816baf
   app:
     master: recipe-app-101
-    main: recipe-app-101
     # dev: node-hello-world-staging
