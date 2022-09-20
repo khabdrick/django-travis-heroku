@@ -28,12 +28,12 @@ before_script:
 
 script:
   
-  - docker build -t khabdrick/django-travis-heroku:v2 .
-  - docker tag khabdrick/django-travis-heroku:v1 registry.heroku.com/$HEROKU_APP/web
+  - docker build -t khabdrick/django-travis-heroku:v1 .
+  - docker tag khabdrick/django-travis-heroku:v1 registry.heroku.com/recipe-app-101/web
 
 deploy:
   provider: script
-  script: docker push khabdrick/django-travis-heroku:v2;
+  script: docker push khabdrick/django-travis-heroku:v1;
     docker push registry.heroku.com/recipe-app-101/web;
     heroku container:release web --app recipe-app-101
   on:
