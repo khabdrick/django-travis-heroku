@@ -1,41 +1,40 @@
-language: python
-python:
-  - "3.8"
-
-before_script: pip install -r requirements.txt
-
-script:
-  - python manage.py test
-
-
-deploy:
-  provider: heroku
-  api_key: 421f31cc-0c9b-4915-b26b-4d17ae816baf
-  app: recipe-app-101
-  on:
-    repo: khabdrick/django-travis-heroku
-    branch: deploy
-    # dev: node-hello-world-staging
-
-# sudo: required
 # language: python
-# services:
-#   - docker
+# python:
+#   - "3.8"
 
-# before_script:
-#   - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-#   - curl https://cli-assets.heroku.com/install.sh | sh #install heroku
-#   - docker login --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com
+# before_script: pip install -r requirements.txt
 
 # script:
-  
-#   - docker build -t aabhusan/koora:v2 .
-#   - docker tag aabhusan/koora:v2 registry.heroku.com/$HEROKU_APP/web
+#   - python manage.py test
+
 
 # deploy:
-#   provider: script
-#   script: docker push aabhusan/koora:v2;
-#     docker push registry.heroku.com/$HEROKU_APP/web;
-#     heroku container:release web --app $HEROKU_APP
+#   provider: heroku
+#   api_key: 421f31cc-0c9b-4915-b26b-4d17ae816baf
+#   app: recipe-app-101
 #   on:
-#     branch: aabhusan
+#     repo: khabdrick/django-travis-heroku
+#     branch: deploy
+#     # dev: node-hello-world-staging
+
+language: python
+services:
+  - docker
+
+before_script:
+  - echo Muhammed-1998 | docker login -u khabdrick --password-stdin
+  - curl https://cli-assets.heroku.com/install.sh | sh #install heroku
+  - docker login --username=Xzo2NDMwMzQ4OS02ODUzLTQ3NGMtODJkNS1iMjJkNTI5MWQ2NzI= --password=421f31cc-0c9b-4915-b26b-4d17ae816baf registry.heroku.com
+
+script:
+  
+  - docker build -t khabdrick/django-travis-heroku:v2 .
+  - docker tag khabdrick/django-travis-heroku:v1 registry.heroku.com/$HEROKU_APP/web
+
+deploy:
+  provider: script
+  script: docker push khabdrick/django-travis-heroku:v2;
+    docker push registry.heroku.com/recipe-app-101/web;
+    heroku container:release web --app recipe-app-101
+  on:
+    branch: deploy
