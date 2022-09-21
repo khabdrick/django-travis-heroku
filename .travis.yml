@@ -24,10 +24,9 @@ services:
 before_script:
   - echo Muhammed-1998 | docker login -u khabdrick --password-stdin
   - curl https://cli-assets.heroku.com/install.sh | sh #install heroku
-  - docker login --username=Xzo2NDMwMzQ4OS02ODUzLTQ3NGMtODJkNS1iMjJkNTI5MWQ2NzI= --password=421f31cc-0c9b-4915-b26b-4d17ae816baf registry.heroku.com
+  - docker login --username=muhamzyali@gmail.com --password=421f31cc-0c9b-4915-b26b-4d17ae816baf registry.heroku.com
 
 script:
-  
   - docker build -t khabdrick/django-travis-heroku:v1 .
   - docker tag khabdrick/django-travis-heroku:v1 registry.heroku.com/recipe-app-101/web
 
