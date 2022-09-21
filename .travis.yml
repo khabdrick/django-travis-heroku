@@ -27,13 +27,13 @@ before_script:
   - docker login --username=_ --password=421f31cc-0c9b-4915-b26b-4d17ae816baf registry.heroku.com
 
 script:
-  - heroku container:login
   - docker build -t khabdrick/django-travis-heroku:v1 .
   - docker tag khabdrick/django-travis-heroku:v1 registry.heroku.com/recipe-app-101/web
 
 deploy:
   provider: script
   script: docker push khabdrick/django-travis-heroku:v1;
+    heroku container:login
     docker push registry.heroku.com/recipe-app-101/web;
     heroku container:release web --app recipe-app-101
   on:
