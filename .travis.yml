@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.8"
+  - "3.10"
 
 before_script: pip install -r requirements.txt
 
@@ -11,3 +11,8 @@ deploy:
   provider: heroku
   api_key:
     secure: "421f31cc-0c9b-4915-b26b-4d17ae816baf"
+
+deploy:
+  provider: heroku
+  api_key: "421f31cc-0c9b-4915-b26b-4d17ae816baf"
+  app: recipe-api-101
