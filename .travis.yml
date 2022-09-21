@@ -1,40 +1,18 @@
-# language: python
-# python:
-#   - "3.8"
-
-# before_script: pip install -r requirements.txt
-
-# script:
-#   - python manage.py test
-
-
-# deploy:
-#   provider: heroku
-#   api_key: 421f31cc-0c9b-4915-b26b-4d17ae816baf
-#   app: recipe-app-101
-#   on:
-#     repo: khabdrick/django-travis-heroku
-#     branch: deploy
-#     # dev: node-hello-world-staging
-
 language: python
-services:
-  - docker
+python:
+  - "3.8"
 
-before_script:
-  - echo Muhammed-1998 | docker login -u khabdrick --password-stdin
-  - curl https://cli-assets.heroku.com/install.sh | sh #install heroku
-  - docker login --username=_ --password=421f31cc-0c9b-4915-b26b-4d17ae816baf registry.heroku.com
+before_script: pip install -r requirements.txt
 
 script:
-  - docker build -t khabdrick/django-travis-heroku:v1 .
-  - docker tag khabdrick/django-travis-heroku:v1 registry.heroku.com/recipe-app-101/web
+  - python manage.py test
+
 
 deploy:
-  provider: script
-  script: docker push khabdrick/django-travis-heroku:v1;
-    heroku container:login
-    docker push registry.heroku.com/recipe-app-101/web;
-    heroku container:release web --app recipe-app-101
+  provider: heroku
+  api_key: 421f31cc-0c9b-4915-b26b-4d17ae816baf
+  app: recipe-app-101
   on:
+    repo: khabdrick/django-travis-heroku
     branch: deploy
+    # dev: node-hello-world-staging
